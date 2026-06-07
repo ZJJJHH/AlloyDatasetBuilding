@@ -360,7 +360,7 @@ Question Input → RAG Retrieval → Context Building → Prompt Construction �
 | Question Dataset | 4,000 entries | 1,000 per each of 4 dimensions |
 | Answer Dataset | 16,000 entries | 4,000 per dimension (4 models) |
 | RAG Retrieval Source | 56,515 entries | Titanium alloy data records |
-| Scoring Data | 8,000 entries | 2,000 per dimension (two rounds of scoring) |
+| Scoring Data | 32,000 entries | 16,000 answers × 2 rounds of scoring |
 
 ### 7.2 Data Quality Characteristics
 
