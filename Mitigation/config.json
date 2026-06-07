@@ -1,0 +1,31 @@
+﻿{
+  "generation_config": {
+    "rag_data_path": "/path/to/AlloyDatasetBuilding/Ti_data.jsonl",
+    "output_path": "/path/to/AlloyDatasetBuilding/Mitigation/mitigation_questions.json",
+    "target_question_count": 1000,
+    "batch_size": 3,
+    "api_delay": 2.0
+  },
+  "deepseek_config": {
+    "api_key": "YOUR_API_KEY",
+    "base_url": "<deepseek-api-endpoint>",
+    "model": "deepseek-chat",
+    "max_tokens": 300,
+    "temperature": 0.7,
+    "retry_count": 3
+  },
+  "rag_config": {
+    "retrieval_count": 3,
+    "similarity_threshold": 0.5
+  },
+  "question_types": {
+    "mitigation": {
+      "description": "失效诊断问题（Root Cause + Tests + Mitigation）",
+      "failure_scenarios": [
+        "应力腐蚀开裂", "疲劳断裂", "高温蠕变失效", "氢脆", 
+        "腐蚀穿孔", "磨损失效", "冲击破坏", "热疲劳"
+      ],
+      "complexity_levels": ["初级", "中级", "高级"]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+﻿{
+  "generation_config": {
+    "rag_data_path": "/path/to/AlloyDatasetBuilding/Ti_data.jsonl",
+    "output_path": "/path/to/AlloyDatasetBuilding/What_if/what_if_questions.json",
+    "target_question_count": 1000,
+    "batch_size": 5,
+    "api_delay": 1.0
+  },
+  "deepseek_config": {
+    "api_key": "YOUR_API_KEY",
+    "base_url": "<deepseek-api-endpoint>",
+    "model": "deepseek-chat",
+    "max_tokens": 200,
+    "temperature": 0.7,
+    "retry_count": 3
+  },
+  "rag_config": {
+    "retrieval_count": 3,
+    "similarity_threshold": 0.5
+  },
+  "question_types": {
+    "what_if": {
+      "description": "反事实设计问题",
+      "templates": [
+        "成分优化",
+        "工艺调整", 
+        "替代方案",
+        "多目标优化",
+        "约束设计"
+      ]
+    }
+  }
+}

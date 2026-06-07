@@ -1,0 +1,161 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║            Answer Generation System - Quick Reference Card                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 1. Quick Start                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  # Enter directory
+  cd /path/to/AlloyDatasetBuilding/AnswerGeneration
+
+  # Edit configuration (set API keys)
+  vi config.py
+
+  # Test the system
+  python test_system.py
+
+  # Generate all dimension answers
+  python run_all.py
+
+  # Generate single dimension (examples)
+  python generate_what_if_answers.py
+  python generate_property_lookup_answers.py
+  python generate_causal_answers.py
+  python generate_mitigation_answers.py
+  python generate_pathway_answers.py
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 2. Command Arguments                                                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  --start N      Start from index N (default: 0)
+  --end N        End at index N (default: all)
+  --test         Test mode (process first 5 only)
+  --types X      Specify dimensions (comma-separated, e.g., what_if,causal)
+  
+  Examples:
+  python run_all.py --start 0 --end 100
+  python generate_what_if_answers.py --start 100 --test
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3. Question Type Descriptions                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  what_if         What-if Questions - logical reasoning and scheme design
+  property_lookup Property Lookup - precise table lookup and data matching
+  causal          Causal Questions - mechanism analysis and causal inference
+  mitigation      Failure Diagnosis - systematic analysis and solutions
+  pathway         Pathway Questions - path completeness and multi-scale correlation
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 4. Answer Storage Format                                                     │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Save location: original question file (fields appended directly)
+  
+  Field name: answer_deepseek or answer_qwen
+  
+  Format:
+  {
+    "content": "Main answer content",
+    "data_sources": ["alloy_000001", "alloy_000002"],
+    "model_used": "deepseek-chat"
+  }
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 5. Configuration (config.py)                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  LLM_MODEL = 'deepseek'  # Switch model: 'deepseek' or 'qwen'
+  
+  DEEPSEEK_CONFIG = {
+    "api_key": "sk-xxx",  # Set API key
+    "max_tokens": 1500,
+    "temperature": 0.7,
+    "retry_count": 3
+  }
+  
+  RAG_CONFIG = {
+    "enable_rag": True,
+    "retrieval_top_k": 5
+  }
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 6. File Structure                                                            │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  config.py                      # Configuration
+  rag_retriever.py               # RAG retriever
+  llm_client.py                  # LLM client
+  answer_generator.py            # Unified generation framework
+  generate_*.py                  # Dimension-specific generation scripts
+  run_all.py                     # Batch execution
+  test_system.py                 # System test
+  README.md                      # Detailed documentation
+  IMPLEMENTATION_SUMMARY.md      # Implementation summary
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 7. Common Commands                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  # Test the system
+  python test_system.py
+  
+  # Generate property lookup answers (simplest, recommended for first test)
+  python generate_property_lookup_answers.py --test
+  
+  # Generate what-if answers
+  python generate_what_if_answers.py --test
+  
+  # Generate all dimensions
+  python run_all.py --test
+  
+  # Start from index 100, generate 100 items
+  python run_all.py --start 100 --end 200
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 8. Troubleshooting                                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Issue: API call failure
+  Fix: Check that the API key in config.py is correct
+  
+  Issue: Generation speed is slow
+  Fix: Reduce the delay_between_calls parameter (but do not make it too small)
+  
+  Issue: Poor answer quality
+  Fix: Adjust the temperature parameter or check RAG retrieval results
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 9. Technical Features                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  ✓ Unified framework + differentiated generation
+  ✓ RAG-enhanced retrieval (deep semantic matching)
+  ✓ Multi-model support (DeepSeek/Qwen)
+  ✓ Fault tolerance (auto-retry)
+  ✓ Data provenance (traceable)
+  ✓ Checkpoint resume support
+
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 10. Important Notes                                                          │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  • Use --test parameter for first-time runs
+  • Back up original question files before generation
+  • Monitor API call frequency and cost
+  • Answers are saved directly to the original files
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                         Happy Building!                                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝

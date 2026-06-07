@@ -1,0 +1,45 @@
+﻿{
+  "generation_config": {
+    "rag_data_path": "/path/to/AlloyDatasetBuilding/Ti_data.jsonl",
+    "output_path": "/path/to/AlloyDatasetBuilding/Pathway/pathway_questions.json",
+    "target_question_count": 1000,
+    "batch_size": 3,
+    "api_delay": 2.0
+  },
+  "deepseek_config": {
+    "api_key": "YOUR_API_KEY",
+    "base_url": "<deepseek-api-endpoint>",
+    "model": "deepseek-chat",
+    "max_tokens": 250,
+    "temperature": 0.7,
+    "retry_count": 3
+  },
+  "rag_config": {
+    "retrieval_count": 3,
+    "similarity_threshold": 0.5
+  },
+  "question_types": {
+    "pathway": {
+      "description": "微观组织机制解释问题（Why/Pathway）",
+      "pathway_types": [
+        "微观组织演变", "性能形成机制", "工艺-结构-性能关联"
+      ],
+      "microstructural_features": [
+        "α相", "β相", "α+β双相组织", "晶粒尺寸", "晶界特征",
+        "析出相", "孪晶", "位错密度", "相界面", "织构"
+      ],
+      "process_pathways": [
+        "热处理过程", "变形过程", "冷却过程", "时效过程",
+        "相变过程", "再结晶过程", "晶粒长大过程"
+      ],
+      "mechanisms": [
+        "固溶强化", "析出强化", "细晶强化", "位错强化",
+        "相变强化", "织构强化", "界面强化"
+      ],
+      "macro_properties": [
+        "强度", "塑性", "韧性", "硬度", "疲劳性能", 
+        "蠕变性能", "腐蚀性能", "断裂韧性", "热稳定性"
+      ]
+    }
+  }
+}

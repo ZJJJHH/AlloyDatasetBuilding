@@ -1,0 +1,42 @@
+﻿{
+  "generation_config": {
+    "rag_data_path": "/path/to/AlloyDatasetBuilding/Ti_data.jsonl",
+    "output_path": "/path/to/AlloyDatasetBuilding/Causal/causal_questions.json",
+    "target_question_count": 1000,
+    "batch_size": 3,
+    "api_delay": 1.5
+  },
+  "deepseek_config": {
+    "api_key": "YOUR_API_KEY",
+    "base_url": "<deepseek-api-endpoint>",
+    "model": "deepseek-chat",
+    "max_tokens": 200,
+    "temperature": 0.7,
+    "retry_count": 3
+  },
+  "rag_config": {
+    "retrieval_count": 3,
+    "similarity_threshold": 0.5
+  },
+  "question_types": {
+    "causal": {
+      "description": "因果关系分析问题（Does X cause Y）",
+      "causal_types": [
+        "元素影响", "工艺影响", "复合影响"
+      ],
+      "alloy_elements": [
+        "Al", "V", "Sn", "Zr", "Mo", "Nb", "Ta", "Fe", 
+        "Cr", "Ni", "Cu", "Si", "O", "N", "H", "C"
+      ],
+      "process_parameters": [
+        "固溶处理温度", "时效处理温度", "冷却速率", 
+        "变形量", "变形温度", "热处理时间",
+        "退火温度", "淬火介质", "热加工工艺"
+      ],
+      "performance_indicators": [
+        "强度", "塑性", "韧性", "硬度", "疲劳性能", 
+        "蠕变性能", "腐蚀性能", "断裂韧性", "热稳定性"
+      ]
+    }
+  }
+}

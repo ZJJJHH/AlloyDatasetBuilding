@@ -1,0 +1,32 @@
+﻿{
+  "input_csv": "/path/to/AlloyDatasetBuilding/Al_data.csv",
+  "output_jsonl": "Al_data.jsonl",
+  "encoding": "utf-8-sig",
+  "chunk_size": 1000,
+  "log_level": "INFO",
+  "text_generation": {
+    "max_embedding_text_length": 1000,
+    "min_keywords_count": 3,
+    "performance_summary_enabled": true
+  },
+  "validation": {
+    "required_columns": [
+      "source_folder",
+      "lab_json_path", 
+      "paper_title",
+      "paper_authors",
+      "paper_innov",
+      "entry_index_in_performance_data",
+      "parse_error",
+      "合金成分",
+      "应用领域"
+    ],
+    "skip_invalid_rows": true,
+    "max_invalid_rows": 100
+  },
+  "output": {
+    "pretty_print": false,
+    "ensure_ascii": false,
+    "compression": false
+  }
+}
